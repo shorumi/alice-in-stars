@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  graphql-api:
+    container_name: ais-api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    tty: true
+    command: >
+        /bin/sh -c "yarn install --check-files && yarn nodemon --exec ts-node src/index.ts"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "${NODE_PORT}:${NODE_PORT}"
+    env_file:
+      - .env
+
+volumes:
+  graphql-api:
+
+networks:
+  default:
+    external:
+      name: dev_network
