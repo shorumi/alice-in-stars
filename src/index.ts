@@ -3,15 +3,20 @@ import "dotenv-safe/config";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
-import { HelloWorldResolver } from "./resolvers/HelloWorldResolver";
+import { NasaApiDataSource } from "./data-sources/NasaApiDataSource";
+import { ApodResolver } from "./resolvers/ApodResolver";
 
 (async () => {
   const app = express();
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [HelloWorldResolver],
+      resolvers: [ApodResolver],
       validate: true
+    }),
+    tracing: true,
+    dataSources: () => ({
+        nasaApiDataSource: new NasaApiDataSource()
     }),
     context: ({ req, res }) => ({ req, res })
   });
