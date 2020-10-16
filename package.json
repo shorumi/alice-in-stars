@@ -9,6 +9,7 @@
     "typescript": "3.7.2"
   },
   "dependencies": {
+    "apollo-datasource-rest": "^0.9.4",
     "apollo-server-express": "^2.9.9",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
@@ -18,6 +19,7 @@
     "typeorm": "0.2.20"
   },
   "dependenciesComments": {
+    "apollo-datasource-rest": "A RESTDataSource is responsible for fetching data from a given REST API",
     "apollo-server-express": "This is the Express and Connect integration of GraphQL Server",
     "dotenv-safe": "Identical to dotenv, but ensures that all necessary environment variables are defined after reading from .env. These needed variables are read from .env.example, which should be commited along with your project.",
     "express": "Fast, unopinionated, minimalist web framework",
