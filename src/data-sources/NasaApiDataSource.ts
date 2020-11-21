@@ -1,4 +1,4 @@
-import { RESTDataSource } from "apollo-datasource-rest";
+import { HTTPCache, RESTDataSource } from "apollo-datasource-rest";
 
 export class NasaApiDataSource extends RESTDataSource {
   readonly NASA_API_KEY = process.env.NASA_API_KEY;
@@ -6,6 +6,7 @@ export class NasaApiDataSource extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.NASA_API_URL;
+    this.httpCache = new HTTPCache();
   }
 
   async getApod(date:String, highDefinition:Boolean) {
