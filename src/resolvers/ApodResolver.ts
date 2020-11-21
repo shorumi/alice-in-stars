@@ -1,18 +1,20 @@
-import { NasaApiDataSource } from "src/data-sources/NasaApiDataSource";
-import { Arg, Ctx, Query, Resolver } from "type-graphql";
+import { NasaServiceImpl } from "../services/NasaServiceImpl";
+import { Arg, Query, Resolver } from "type-graphql";
+import { Service } from "typedi";
 import { Apod } from "../types/Apod";
 
+@Service()
 @Resolver(Apod)
 export class ApodResolver {
+  constructor(
+    private readonly nasaService: NasaServiceImpl,
+  ) {}
   
   @Query(() => Apod)
   public async apod(
     @Arg("date", { nullable: true }) date: string,
     @Arg("highDefinition", { nullable: true }) highDefinition: Boolean,
-    @Ctx("dataSources") dataSources: any
   ): Promise<Apod> {
-    const nasaApiDataSource: NasaApiDataSource = dataSources.nasaApiDataSource;
-
-    return nasaApiDataSource.getApod(date, highDefinition);
+    return this.nasaService.getApodByDate(date, highDefinition);
   }
 }
