@@ -4,9 +4,9 @@ https://api.nasa.gov/
 
 ```bash
 cp -a .env.development .env
-docker-compose --build
+docker-compose up --build
 docker network create dev-network
-docker-compose build
+docker-compose up build
 ```
 
 http://localhost:4000/graphql
