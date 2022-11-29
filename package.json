@@ -2,26 +2,25 @@
   "name": "alice-in-stars-graphql",
   "version": "0.0.1",
   "devDependencies": {
-    "@types/express": "^4.17.2",
-    "@types/node": "^12.12.8",
-    "nodemon": "^1.19.4",
-    "ts-node": "8.5.2",
-    "typescript": "^4.0.3"
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20",
+    "ts-node": "10.9.1",
+    "typescript": "^4.9.3"
   },
   "dependencies": {
-    "apollo-datasource-rest": "^0.9.4",
-    "apollo-server-express": "^2.9.9",
+    "@apollo/datasource-rest": "^4.3.2",
+    "@apollo/server": "^4.2.2",
+    "@types/dotenv-safe": "^8.1.2",
     "dotenv-safe": "^8.2.0",
-    "express": "^4.17.1",
-    "graphql": "^14.5.8",
-    "reflect-metadata": "^0.1.10",
-    "type-graphql": "^0.17.5",
-    "typedi": "^0.8.0",
-    "typeorm": "0.2.20"
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0",
+    "typeorm": "0.3.10"
   },
   "dependenciesComments": {
-    "apollo-datasource-rest": "A RESTDataSource is responsible for fetching data from a given REST API",
-    "apollo-server-express": "This is the Express and Connect integration of GraphQL Server",
     "dotenv-safe": "Identical to dotenv, but ensures that all necessary environment variables are defined after reading from .env. These needed variables are read from .env.example, which should be commited along with your project.",
     "express": "Fast, unopinionated, minimalist web framework",
     "graphql": "A Query Language and Runtime which can target any service.",
@@ -30,7 +29,7 @@
     "typeorm": "Data-Mapper ORM for TypeScript, ES7, ES6, ES5. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, MongoDB databases."
   },
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts",
+    "start": "nodemon --exec ts-node-esm src/index.ts",
     "build": "tsc"
   }
 }

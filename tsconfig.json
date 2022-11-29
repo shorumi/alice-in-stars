@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "rootDirs": ["src"],
+    "target": "es2020",
     "module": "commonjs",
     "lib": [
+      "es2020",
       "dom",
       "es6",
       "es2017",
       "esnext.asynciterable"
     ],
+    "types": ["node"],
     "sourceMap": true,
     "outDir": "./dist",
     "moduleResolution": "node",
