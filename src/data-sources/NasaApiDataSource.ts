@@ -1,6 +1,8 @@
 import { RESTDataSource } from "@apollo/datasource-rest";
 import { KeyValueCache } from '@apollo/utils.keyvaluecache';
+import { Service } from "typedi";
 
+@Service()
 export class NasaApiDataSource extends RESTDataSource {
   readonly NASA_API_KEY = process.env.NASA_API_KEY;
 
