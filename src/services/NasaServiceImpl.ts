@@ -1,7 +1,7 @@
-import { Apod } from "src/types/Apod";
-import { Service } from "typedi";
-import { INasaService } from "./INasaService";
-import { NasaApiDataSource } from "../data-sources/NasaApiDataSource";
+import { Apod } from "src/types/Apod"
+import { Service } from "typedi"
+import { INasaService } from "./INasaService"
+import { NasaApiDataSource } from "../data-sources/NasaApiDataSource"
 
 @Service()
 export class NasaServiceImpl implements INasaService {
@@ -10,7 +10,11 @@ export class NasaServiceImpl implements INasaService {
   ) {}
 
   getApodByDate(date: String, highDefinition: Boolean): Promise<Apod> {
-    return this.nasaApiDataSource.getApod(date, highDefinition);
+    return this.nasaApiDataSource.getApodByDate(date, highDefinition)
+  }
+  
+  getApodByDateRange(startDate: String, endDate: String, highDefinition: Boolean): Promise<[Apod]> {
+    return this.nasaApiDataSource.getApodByDateRange(startDate, endDate, highDefinition)
   }
   
 }

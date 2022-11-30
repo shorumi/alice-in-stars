@@ -2,27 +2,27 @@ import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class Apod {
-  @Field()
-  copyright: string;
+  @Field({ nullable: true })
+  copyright: string
   
-  @Field()
-  date: string;
+  @Field({ nullable: true })
+  date: string
   
-  @Field()
-  explanation: string;
+  @Field({ nullable: true })
+  explanation: string
   
-  @Field()
-  hdurl: string;
+  @Field({ nullable: true })
+  hdurl: string
   
-  @Field()
-  media_type: string;
+  @Field({ nullable: true })
+  media_type: string
   
-  @Field()
-  service_version: string;
+  @Field({ nullable: true })
+  service_version: string
   
-  @Field()
-  title: string;
+  @Field({ nullable: true })
+  title: string
   
-  @Field()
-  url: string;
+  @Field({ nullable: true })
+  url: string
 }
