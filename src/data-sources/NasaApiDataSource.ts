@@ -12,15 +12,21 @@ export class NasaApiDataSource extends RESTDataSource {
     this.baseURL = process.env.NASA_API_URL
   }
 
-  async getApodByDate(date:String, highDefinition:Boolean) {
+  async getApodByDate(date:String, highDefinition:Boolean, thumbs:Boolean, conceptTags: Boolean) {
     return this.get(
-      `${NasaApiDataSource.apodEndPoint}?date=${date}&hd=${highDefinition}&api_key=${NasaApiDataSource.NASA_API_KEY}`
+      `${NasaApiDataSource.apodEndPoint}?date=${date}&hd=${highDefinition}&api_key=${NasaApiDataSource.NASA_API_KEY}&thumbs=${thumbs}&concept_tags=${conceptTags}`
     )
   }
 
-  async getApodByDateRange(startDate:String, endDate: String, highDefinition:Boolean) {
+  async getApodByDateRange(startDate:String, endDate: String, highDefinition:Boolean, thumbs:Boolean, conceptTags: Boolean) {
     return this.get(
-      `${NasaApiDataSource.apodEndPoint}?start_date=${startDate}&end_date=${endDate}&hd=${highDefinition}&api_key=${NasaApiDataSource.NASA_API_KEY}`
+      `${NasaApiDataSource.apodEndPoint}?start_date=${startDate}&end_date=${endDate}&hd=${highDefinition}&api_key=${NasaApiDataSource.NASA_API_KEY}&thumbs=${thumbs}&concept_tags=${conceptTags}`
     );
+  }
+
+  async getApodRandomly(randomQuantity:Number, highDefinition:Boolean, thumbs:Boolean, conceptTags: Boolean) {
+    return this.get(
+      `${NasaApiDataSource.apodEndPoint}?count=${randomQuantity}&hd=${highDefinition}&api_key=${NasaApiDataSource.NASA_API_KEY}&thumbs=${thumbs}&concept_tags=${conceptTags}`
+    )
   }
 }

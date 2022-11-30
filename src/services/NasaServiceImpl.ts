@@ -9,12 +9,16 @@ export class NasaServiceImpl implements INasaService {
     private readonly nasaApiDataSource: NasaApiDataSource,
   ) {}
 
-  getApodByDate(date: String, highDefinition: Boolean): Promise<Apod> {
-    return this.nasaApiDataSource.getApodByDate(date, highDefinition)
+  getApodByDate(date: String, highDefinition: Boolean, thumbs: Boolean, conceptTags: Boolean): Promise<Apod> {
+    return this.nasaApiDataSource.getApodByDate(date, highDefinition, thumbs, conceptTags)
   }
   
-  getApodByDateRange(startDate: String, endDate: String, highDefinition: Boolean): Promise<[Apod]> {
-    return this.nasaApiDataSource.getApodByDateRange(startDate, endDate, highDefinition)
+  getApodByDateRange(startDate: String, endDate: String, highDefinition: Boolean, thumbs: Boolean, conceptTags: Boolean): Promise<[Apod]> {
+    return this.nasaApiDataSource.getApodByDateRange(startDate, endDate, highDefinition, thumbs, conceptTags)
+  }
+
+  getApodRandomly(randomQuantity: Number, highDefinition: Boolean, thumbs: Boolean, conceptTags: Boolean): Promise<[Apod]> {
+    return this.nasaApiDataSource.getApodRandomly(randomQuantity, highDefinition, thumbs, conceptTags)
   }
   
 }
